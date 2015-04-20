@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F81DE9591AE580A7008575B5 /* SASlideDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = F81DE9581AE580A7008575B5 /* SASlideDrawer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F81DE95F1AE580A7008575B5 /* SASlideDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */; };
+		F81DE9661AE580A7008575B5 /* SASlideDrawerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9651AE580A7008575B5 /* SASlideDrawerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F81DE9601AE580A7008575B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81DE94A1AE580A7008575B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81DE9521AE580A7008575B5;
+			remoteInfo = SASlideDrawer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SASlideDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81DE9571AE580A7008575B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81DE9581AE580A7008575B5 /* SASlideDrawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SASlideDrawer.h; sourceTree = "<group>"; };
+		F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SASlideDrawerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81DE9641AE580A7008575B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81DE9651AE580A7008575B5 /* SASlideDrawerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SASlideDrawerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F81DE94F1AE580A7008575B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81DE95B1AE580A7008575B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81DE95F1AE580A7008575B5 /* SASlideDrawer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F81DE9491AE580A7008575B5 = {
+			isa = PBXGroup;
+			children = (
+				F81DE9551AE580A7008575B5 /* SASlideDrawer */,
+				F81DE9621AE580A7008575B5 /* SASlideDrawerTests */,
+				F81DE9541AE580A7008575B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F81DE9541AE580A7008575B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */,
+				F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F81DE9551AE580A7008575B5 /* SASlideDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9581AE580A7008575B5 /* SASlideDrawer.h */,
+				F81DE9561AE580A7008575B5 /* Supporting Files */,
+			);
+			path = SASlideDrawer;
+			sourceTree = "<group>";
+		};
+		F81DE9561AE580A7008575B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9571AE580A7008575B5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F81DE9621AE580A7008575B5 /* SASlideDrawerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9651AE580A7008575B5 /* SASlideDrawerTests.swift */,
+				F81DE9631AE580A7008575B5 /* Supporting Files */,
+			);
+			path = SASlideDrawerTests;
+			sourceTree = "<group>";
+		};
+		F81DE9631AE580A7008575B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9641AE580A7008575B5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F81DE9501AE580A7008575B5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81DE9591AE580A7008575B5 /* SASlideDrawer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F81DE9521AE580A7008575B5 /* SASlideDrawer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81DE9691AE580A7008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawer" */;
+			buildPhases = (
+				F81DE94E1AE580A7008575B5 /* Sources */,
+				F81DE94F1AE580A7008575B5 /* Frameworks */,
+				F81DE9501AE580A7008575B5 /* Headers */,
+				F81DE9511AE580A7008575B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SASlideDrawer;
+			productName = SASlideDrawer;
+			productReference = F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F81DE95D1AE580A7008575B5 /* SASlideDrawerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81DE96C1AE580A7008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerTests" */;
+			buildPhases = (
+				F81DE95A1AE580A7008575B5 /* Sources */,
+				F81DE95B1AE580A7008575B5 /* Frameworks */,
+				F81DE95C1AE580A7008575B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81DE9611AE580A7008575B5 /* PBXTargetDependency */,
+			);
+			name = SASlideDrawerTests;
+			productName = SASlideDrawerTests;
+			productReference = F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F81DE94A1AE580A7008575B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Stefan Arambasich";
+				TargetAttributes = {
+					F81DE9521AE580A7008575B5 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					F81DE95D1AE580A7008575B5 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = F81DE94D1AE580A7008575B5 /* Build configuration list for PBXProject "SASlideDrawer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F81DE9491AE580A7008575B5;
+			productRefGroup = F81DE9541AE580A7008575B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F81DE9521AE580A7008575B5 /* SASlideDrawer */,
+				F81DE95D1AE580A7008575B5 /* SASlideDrawerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F81DE9511AE580A7008575B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81DE95C1AE580A7008575B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F81DE94E1AE580A7008575B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81DE95A1AE580A7008575B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81DE9661AE580A7008575B5 /* SASlideDrawerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F81DE9611AE580A7008575B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81DE9521AE580A7008575B5 /* SASlideDrawer */;
+			targetProxy = F81DE9601AE580A7008575B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F81DE9671AE580A7008575B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F81DE9681AE580A7008575B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F81DE96A1AE580A7008575B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SASlideDrawer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F81DE96B1AE580A7008575B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SASlideDrawer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F81DE96D1AE580A7008575B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SASlideDrawerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F81DE96E1AE580A7008575B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SASlideDrawerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F81DE94D1AE580A7008575B5 /* Build configuration list for PBXProject "SASlideDrawer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81DE9671AE580A7008575B5 /* Debug */,
+				F81DE9681AE580A7008575B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81DE9691AE580A7008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81DE96A1AE580A7008575B5 /* Debug */,
+				F81DE96B1AE580A7008575B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F81DE96C1AE580A7008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81DE96D1AE580A7008575B5 /* Debug */,
+				F81DE96E1AE580A7008575B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F81DE94A1AE580A7008575B5 /* Project object */;
+}
