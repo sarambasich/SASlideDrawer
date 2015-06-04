@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="SASlideDrawerDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="3mH-S1-Ir1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPm-J1-6GE">
+                    <rect key="frame" x="255" y="285" width="91" height="30"/>
+                    <state key="normal" title="Show drawer">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didSelectButton:" destination="-1" eventType="touchUpInside" id="0VD-Lj-w5T"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVt-Sa-I3m">
+                    <rect key="frame" x="255" y="332" width="77" height="30"/>
+                    <state key="normal" title="Show state">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didSelectShowStateButton:" destination="-1" eventType="touchUpInside" id="psC-4a-Yrr"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93254798090000002" green="0.2142740655" blue="0.36865612689999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="TVt-Sa-I3m" firstAttribute="top" secondItem="SPm-J1-6GE" secondAttribute="bottom" constant="17" id="5Wn-TE-K6Q"/>
+                <constraint firstItem="TVt-Sa-I3m" firstAttribute="leading" secondItem="SPm-J1-6GE" secondAttribute="leading" id="VyR-Ei-e1J"/>
+                <constraint firstItem="SPm-J1-6GE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gyO-Ac-xaL"/>
+                <constraint firstItem="SPm-J1-6GE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="z7T-WO-jm3"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

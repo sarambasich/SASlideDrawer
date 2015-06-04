@@ -10,6 +10,18 @@
 		F81DE9591AE580A7008575B5 /* SASlideDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = F81DE9581AE580A7008575B5 /* SASlideDrawer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F81DE95F1AE580A7008575B5 /* SASlideDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */; };
 		F81DE9661AE580A7008575B5 /* SASlideDrawerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9651AE580A7008575B5 /* SASlideDrawerTests.swift */; };
+		F81DE9701AE580BA008575B5 /* SASlideDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE96F1AE580BA008575B5 /* SASlideDrawerViewController.swift */; };
+		F81DE9721AE580D3008575B5 /* SASlideDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9711AE580D3008575B5 /* SASlideDrawer.swift */; };
+		F81DE9921AE584E6008575B5 /* SASlideDrawerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */; };
+		F81DE9A21AE58518008575B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE99A1AE58518008575B5 /* AppDelegate.swift */; };
+		F81DE9A51AE58518008575B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81DE99F1AE58518008575B5 /* Images.xcassets */; };
+		F81DE9A61AE58518008575B5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81DE9A01AE58518008575B5 /* Info.plist */; };
+		F81DE9A71AE58518008575B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9A11AE58518008575B5 /* ViewController.swift */; };
+		F81DE9B01AE5879E008575B5 /* SASlideDrawer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F81DE9B51AE58C0C008575B5 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9B41AE58C0C008575B5 /* DrawerViewController.swift */; };
+		F81DE9B71AE58C2D008575B5 /* DrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81DE9B61AE58C2D008575B5 /* DrawerView.xib */; };
+		F81DE9BB1AE58C9D008575B5 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81DE9BA1AE58C9D008575B5 /* MainView.xib */; };
+		F88DF0431AE5F3B7008E58ED /* DeleteMeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F88DF0421AE5F3B7008E58ED /* DeleteMeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,7 +32,34 @@
 			remoteGlobalIDString = F81DE9521AE580A7008575B5;
 			remoteInfo = SASlideDrawer;
 		};
+		F81DE98C1AE584E6008575B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81DE94A1AE580A7008575B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81DE9761AE584E6008575B5;
+			remoteInfo = SASlideDrawerDemo;
+		};
+		F81DE9B11AE587A8008575B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81DE94A1AE580A7008575B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81DE9521AE580A7008575B5;
+			remoteInfo = SASlideDrawer;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F81DE9AD1AE58657008575B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F81DE9B01AE5879E008575B5 /* SASlideDrawer.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SASlideDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +68,21 @@
 		F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SASlideDrawerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE9641AE580A7008575B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81DE9651AE580A7008575B5 /* SASlideDrawerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SASlideDrawerTests.swift; sourceTree = "<group>"; };
+		F81DE96F1AE580BA008575B5 /* SASlideDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SASlideDrawerViewController.swift; sourceTree = "<group>"; };
+		F81DE9711AE580D3008575B5 /* SASlideDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SASlideDrawer.swift; sourceTree = "<group>"; };
+		F81DE9771AE584E6008575B5 /* SASlideDrawerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SASlideDrawerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81DE98B1AE584E6008575B5 /* SASlideDrawerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SASlideDrawerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81DE9901AE584E6008575B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SASlideDrawerDemoTests.swift; sourceTree = "<group>"; };
+		F81DE99A1AE58518008575B5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F81DE99C1AE58518008575B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F81DE99F1AE58518008575B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F81DE9A01AE58518008575B5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81DE9A11AE58518008575B5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F81DE9B41AE58C0C008575B5 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		F81DE9B61AE58C2D008575B5 /* DrawerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawerView.xib; sourceTree = "<group>"; };
+		F81DE9BA1AE58C9D008575B5 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		F88DF0421AE5F3B7008E58ED /* DeleteMeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteMeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +101,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F81DE9741AE584E6008575B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81DE9881AE584E6008575B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +123,8 @@
 			children = (
 				F81DE9551AE580A7008575B5 /* SASlideDrawer */,
 				F81DE9621AE580A7008575B5 /* SASlideDrawerTests */,
+				F81DE9991AE58518008575B5 /* SASlideDrawerDemo */,
+				F81DE98E1AE584E6008575B5 /* SASlideDrawerDemoTests */,
 				F81DE9541AE580A7008575B5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +134,8 @@
 			children = (
 				F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */,
 				F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */,
+				F81DE9771AE584E6008575B5 /* SASlideDrawerDemo.app */,
+				F81DE98B1AE584E6008575B5 /* SASlideDrawerDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,8 +143,10 @@
 		F81DE9551AE580A7008575B5 /* SASlideDrawer */ = {
 			isa = PBXGroup;
 			children = (
+				F81DE96F1AE580BA008575B5 /* SASlideDrawerViewController.swift */,
 				F81DE9581AE580A7008575B5 /* SASlideDrawer.h */,
 				F81DE9561AE580A7008575B5 /* Supporting Files */,
+				F81DE9711AE580D3008575B5 /* SASlideDrawer.swift */,
 			);
 			path = SASlideDrawer;
 			sourceTree = "<group>";
@@ -100,6 +174,39 @@
 				F81DE9641AE580A7008575B5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F81DE98E1AE584E6008575B5 /* SASlideDrawerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */,
+				F81DE98F1AE584E6008575B5 /* Supporting Files */,
+			);
+			path = SASlideDrawerDemoTests;
+			sourceTree = "<group>";
+		};
+		F81DE98F1AE584E6008575B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE9901AE584E6008575B5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F81DE9991AE58518008575B5 /* SASlideDrawerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F81DE99A1AE58518008575B5 /* AppDelegate.swift */,
+				F81DE99B1AE58518008575B5 /* LaunchScreen.xib */,
+				F81DE99F1AE58518008575B5 /* Images.xcassets */,
+				F81DE9A01AE58518008575B5 /* Info.plist */,
+				F81DE9A11AE58518008575B5 /* ViewController.swift */,
+				F81DE9B41AE58C0C008575B5 /* DrawerViewController.swift */,
+				F81DE9B61AE58C2D008575B5 /* DrawerView.xib */,
+				F81DE9BA1AE58C9D008575B5 /* MainView.xib */,
+				F88DF0421AE5F3B7008E58ED /* DeleteMeView.xib */,
+			);
+			path = SASlideDrawerDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +259,43 @@
 			productReference = F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F81DE9761AE584E6008575B5 /* SASlideDrawerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81DE9931AE584E6008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerDemo" */;
+			buildPhases = (
+				F81DE9731AE584E6008575B5 /* Sources */,
+				F81DE9741AE584E6008575B5 /* Frameworks */,
+				F81DE9751AE584E6008575B5 /* Resources */,
+				F81DE9AD1AE58657008575B5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81DE9B21AE587A8008575B5 /* PBXTargetDependency */,
+			);
+			name = SASlideDrawerDemo;
+			productName = SASlideDrawerDemo;
+			productReference = F81DE9771AE584E6008575B5 /* SASlideDrawerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F81DE98A1AE584E6008575B5 /* SASlideDrawerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81DE9961AE584E6008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerDemoTests" */;
+			buildPhases = (
+				F81DE9871AE584E6008575B5 /* Sources */,
+				F81DE9881AE584E6008575B5 /* Frameworks */,
+				F81DE9891AE584E6008575B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81DE98D1AE584E6008575B5 /* PBXTargetDependency */,
+			);
+			name = SASlideDrawerDemoTests;
+			productName = SASlideDrawerDemoTests;
+			productReference = F81DE98B1AE584E6008575B5 /* SASlideDrawerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,6 +311,13 @@
 					F81DE95D1AE580A7008575B5 = {
 						CreatedOnToolsVersion = 6.3;
 					};
+					F81DE9761AE584E6008575B5 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					F81DE98A1AE584E6008575B5 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = F81DE9761AE584E6008575B5;
+					};
 				};
 			};
 			buildConfigurationList = F81DE94D1AE580A7008575B5 /* Build configuration list for PBXProject "SASlideDrawer" */;
@@ -175,6 +326,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = F81DE9491AE580A7008575B5;
 			productRefGroup = F81DE9541AE580A7008575B5 /* Products */;
@@ -183,6 +335,8 @@
 			targets = (
 				F81DE9521AE580A7008575B5 /* SASlideDrawer */,
 				F81DE95D1AE580A7008575B5 /* SASlideDrawerTests */,
+				F81DE9761AE584E6008575B5 /* SASlideDrawerDemo */,
+				F81DE98A1AE584E6008575B5 /* SASlideDrawerDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +356,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F81DE9751AE584E6008575B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81DE9B71AE58C2D008575B5 /* DrawerView.xib in Resources */,
+				F88DF0431AE5F3B7008E58ED /* DeleteMeView.xib in Resources */,
+				F81DE9BB1AE58C9D008575B5 /* MainView.xib in Resources */,
+				F81DE9A61AE58518008575B5 /* Info.plist in Resources */,
+				F81DE9A51AE58518008575B5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81DE9891AE584E6008575B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -209,6 +382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81DE9721AE580D3008575B5 /* SASlideDrawer.swift in Sources */,
+				F81DE9701AE580BA008575B5 /* SASlideDrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +395,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F81DE9731AE584E6008575B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81DE9A71AE58518008575B5 /* ViewController.swift in Sources */,
+				F81DE9A21AE58518008575B5 /* AppDelegate.swift in Sources */,
+				F81DE9B51AE58C0C008575B5 /* DrawerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81DE9871AE584E6008575B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81DE9921AE584E6008575B5 /* SASlideDrawerDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -228,7 +421,28 @@
 			target = F81DE9521AE580A7008575B5 /* SASlideDrawer */;
 			targetProxy = F81DE9601AE580A7008575B5 /* PBXContainerItemProxy */;
 		};
+		F81DE98D1AE584E6008575B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81DE9761AE584E6008575B5 /* SASlideDrawerDemo */;
+			targetProxy = F81DE98C1AE584E6008575B5 /* PBXContainerItemProxy */;
+		};
+		F81DE9B21AE587A8008575B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81DE9521AE580A7008575B5 /* SASlideDrawer */;
+			targetProxy = F81DE9B11AE587A8008575B5 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F81DE99B1AE58518008575B5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F81DE99C1AE58518008575B5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F81DE9671AE580A7008575B5 /* Debug */ = {
@@ -323,6 +537,7 @@
 		F81DE96A1AE580A7008575B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +547,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F81DE96B1AE580A7008575B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -380,6 +597,66 @@
 			};
 			name = Release;
 		};
+		F81DE9941AE584E6008575B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SASlideDrawerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F81DE9951AE584E6008575B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				INFOPLIST_FILE = SASlideDrawerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F81DE9971AE584E6008575B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SASlideDrawerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SASlideDrawerDemo.app/SASlideDrawerDemo";
+			};
+			name = Debug;
+		};
+		F81DE9981AE584E6008575B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SASlideDrawerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SASlideDrawerDemo.app/SASlideDrawerDemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -399,6 +676,7 @@
 				F81DE96B1AE580A7008575B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F81DE96C1AE580A7008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +685,25 @@
 				F81DE96E1AE580A7008575B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81DE9931AE584E6008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81DE9941AE584E6008575B5 /* Debug */,
+				F81DE9951AE584E6008575B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81DE9961AE584E6008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81DE9971AE584E6008575B5 /* Debug */,
+				F81DE9981AE584E6008575B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
