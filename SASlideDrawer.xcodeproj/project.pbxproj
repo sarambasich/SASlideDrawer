@@ -15,7 +15,6 @@
 		F81DE9921AE584E6008575B5 /* SASlideDrawerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */; };
 		F81DE9A21AE58518008575B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE99A1AE58518008575B5 /* AppDelegate.swift */; };
 		F81DE9A51AE58518008575B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81DE99F1AE58518008575B5 /* Images.xcassets */; };
-		F81DE9A61AE58518008575B5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81DE9A01AE58518008575B5 /* Info.plist */; };
 		F81DE9A71AE58518008575B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9A11AE58518008575B5 /* ViewController.swift */; };
 		F81DE9B01AE5879E008575B5 /* SASlideDrawer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F81DE9B51AE58C0C008575B5 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9B41AE58C0C008575B5 /* DrawerViewController.swift */; };
@@ -363,7 +362,6 @@
 				F81DE9B71AE58C2D008575B5 /* DrawerView.xib in Resources */,
 				F88DF0431AE5F3B7008E58ED /* DeleteMeView.xib in Resources */,
 				F81DE9BB1AE58C9D008575B5 /* MainView.xib in Resources */,
-				F81DE9A61AE58518008575B5 /* Info.plist in Resources */,
 				F81DE9A51AE58518008575B5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

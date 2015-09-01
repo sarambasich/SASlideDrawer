@@ -9,6 +9,22 @@
 import UIKit
 
 /**
+    Names of events posted to `NSNotificationCenter` in response to menu
+    status changes.
+*/
+public struct Events {
+    /// Event posted when the drawer will open
+    public static let DrawerWillOpen = "DrawerWillOpen"
+    /// Event posted when the drawer did open
+    public static let DrawerDidOpen = "DrawerDidOpen"
+    /// Event posted when the drawer will close
+    public static let DrawerWillClose = "DrawerWillClose"
+    /// Event posted when the drawer did close
+    public static let DrawerDidClose = "DrawerDidClose"
+}
+
+
+/**
     Describes the direction from which the drawer appears.
 */
 public enum SASlideDrawerDirection: Int {
@@ -102,6 +118,9 @@ public class SASlideDrawerViewController: UIViewController {
         return drawerViewController.view
     }
     
+    /// Handle invoked when drawer slides (argument represents percent shown, 0% being 0 and 100% being `drawerSize`)
+    public var drawerDidPan: ((CGFloat) -> Void)?
+    
     // ***
     
     /// The threshold that the drawer should not appear beyond
@@ -194,7 +213,8 @@ public class SASlideDrawerViewController: UIViewController {
             let numer = min(fabs(drawerSize - drawerPos), drawerSize)
             let denom = max(fabs(drawerSize - drawerPos), drawerSize)
             
-            if fabs(v.x) > 300.0 || fabs(v.y) > 300.0 {let dur = Double(deltaUnits) / Double(v.x)
+            if fabs(v.x) > 300.0 || fabs(v.y) > 300.0 {
+                let dur = Double(deltaUnits) / Double(v.x)
                 println(dur)
                 if deltaUnits > 0 {
                     openDrawer(customDuration: dur)
@@ -236,11 +256,13 @@ public class SASlideDrawerViewController: UIViewController {
             }
             
             slideConstraint.constant = constraint
+            
+            drawerDidPan?(fabs(constraint / drawerSize))
         }
     }
     
     /**
-        Toggles the current drawer state. If the drawer is closed, it will open. If it 
+        Toggles the current drawer state. If the drawer is closed, it will open. If     it 
         is opened, it will close.
     
         :return: The new drawer state.
@@ -279,11 +301,13 @@ public class SASlideDrawerViewController: UIViewController {
         :param: customDuration An optional custom duration of the animation.
     */
     private func openDrawer(customDuration d: NSTimeInterval = 0.0) {
-        println("Opening drawer")
         var dur = d == 0.0 ? slideDuration : d
-        UIView.animateWithDuration(dur) {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillOpen, object: self))
+        UIView.animateWithDuration(dur, animations: {
             self.slideConstraint.constant = self.slideEndConstant
             self.view.layoutIfNeeded()
+        }) { _ in
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidOpen, object: self))
         }
     }
 
@@ -293,11 +317,13 @@ public class SASlideDrawerViewController: UIViewController {
         :param: customDuration An optional custom duration of the animation.
     */
     private func closeDrawer(customDuration d: NSTimeInterval = 0.0) {
-        println("Closing drawer")
         var dur = d == 0.0 ? slideDuration : d
-        UIView.animateWithDuration(dur) {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillClose, object: self))
+        UIView.animateWithDuration(dur, animations: {
             self.slideConstraint.constant = self.slideStartConstant
             self.view.layoutIfNeeded()
+        }) { _ in
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidClose, object: self))
         }
     }
     
