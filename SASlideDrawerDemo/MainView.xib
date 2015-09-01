@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="SASlideDrawerDemo" customModuleProvider="target">
             <connections>
+                <outlet property="label" destination="ptl-xW-86i" id="Nsx-R0-F4E"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3mH-S1-Ir1"/>
             </connections>
         </placeholder>
@@ -32,12 +33,20 @@
                         <action selector="didSelectShowStateButton:" destination="-1" eventType="touchUpInside" id="psC-4a-Yrr"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptl-xW-86i">
+                    <rect key="frame" x="542" y="290" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.93254798090000002" green="0.2142740655" blue="0.36865612689999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="TVt-Sa-I3m" firstAttribute="top" secondItem="SPm-J1-6GE" secondAttribute="bottom" constant="17" id="5Wn-TE-K6Q"/>
+                <constraint firstAttribute="trailing" secondItem="ptl-xW-86i" secondAttribute="trailing" constant="16" id="Tt5-Zk-l0o"/>
                 <constraint firstItem="TVt-Sa-I3m" firstAttribute="leading" secondItem="SPm-J1-6GE" secondAttribute="leading" id="VyR-Ei-e1J"/>
                 <constraint firstItem="SPm-J1-6GE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gyO-Ac-xaL"/>
+                <constraint firstAttribute="centerY" secondItem="ptl-xW-86i" secondAttribute="centerY" id="hgz-qo-bLj"/>
                 <constraint firstItem="SPm-J1-6GE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="z7T-WO-jm3"/>
             </constraints>
         </view>
