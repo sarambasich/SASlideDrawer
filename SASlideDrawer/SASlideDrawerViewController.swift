@@ -152,7 +152,11 @@ public class SASlideDrawerViewController: UIViewController {
     }
     
     public required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        contentViewController = UIViewController()
+        drawerViewController = UIViewController()
+        slideDirection = .Left
+        
+        super.init(coder: aDecoder)
     }
     
     // ***
