@@ -70,7 +70,7 @@ public class SASlideDrawerViewController: UIViewController {
     /// The preferred width or height for the drawer
     public var drawerSize: CGFloat = DefaultDrawerSize {
         didSet {
-            
+            configureViews()
         }
     }
     /// The duration it takes for the drawer to open / close when triggered
@@ -81,7 +81,7 @@ public class SASlideDrawerViewController: UIViewController {
     /// Whether the user can swipe to reveal the drawer
     public var canPanToDrawer: Bool = true {
         didSet {
-            configureSwipeGestureRecognizer()
+            configureGestureRecognizers()
         }
     }
     /// A pan gesture recognizer used to recognize when a user swipes to the view. Non-nil if `canSwipeToDrawer` is true.
@@ -118,8 +118,20 @@ public class SASlideDrawerViewController: UIViewController {
         return drawerViewController.view
     }
     
-    /// Handle invoked when drawer slides (argument represents percent shown, 0% being 0 and 100% being `drawerSize`)
+    /// Handle invoked when drawer will open
+    public var drawerWillOpen: (() -> Void)?
+    /// Handle invoked when the drawer will close
+    public var drawerWillClose: (() -> Void)?
+    
+    /// Handle invoked when drawer slides (argument represents percent shown,
+    /// 0% being 0 and 100% being `drawerSize`)
     public var drawerDidPan: ((CGFloat) -> Void)?
+    /// Handle invoked when the drawer pan gesture will begin
+    public var drawerPanDidBegin: (() -> Void)?
+    /// Handle invoked when drawer pan did finish (first argument represnts
+    /// the speed at which the drawer will close, second, second represents
+    /// whether the drawer will open or not)
+    public var drawerPanDidFinish: ((NSTimeInterval, Bool) -> Void)?
     
     // ***
     
@@ -148,7 +160,7 @@ public class SASlideDrawerViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
-        configureSwipeGestureRecognizer()
+        configureGestureRecognizers()
     }
     
     public required init(coder aDecoder: NSCoder) {
@@ -190,6 +202,7 @@ public class SASlideDrawerViewController: UIViewController {
             case .Right:
                 _fingerOffset = drawerPoint.x
             }
+            drawerPanDidBegin?()
         case .Ended:
             let swipeEndPoint = gestureRecognizer.locationInView(view)
             let swipeEndDate = NSDate()
@@ -219,16 +232,21 @@ public class SASlideDrawerViewController: UIViewController {
             
             if fabs(v.x) > 300.0 || fabs(v.y) > 300.0 {
                 let dur = Double(deltaUnits) / Double(v.x)
-                println(dur)
+                let flag: Bool
                 if deltaUnits > 0 {
                     openDrawer(customDuration: dur)
+                    flag = true
                 } else {
                     closeDrawer(customDuration: dur)
+                    flag = false
                 }
+                drawerPanDidFinish?(dur, flag)
             } else if numer / denom < showHideThresholdRatio {
                 closeDrawer()
+                drawerPanDidFinish?(slideDuration, false)
             } else {
                 openDrawer()
+                drawerPanDidFinish?(slideDuration, true)
             }
         default:
             var constraint: CGFloat
@@ -284,7 +302,7 @@ public class SASlideDrawerViewController: UIViewController {
     /**
         Configures the swipe gesture recognizer.
     */
-    private func configureSwipeGestureRecognizer() {
+    private func configureGestureRecognizers() {
         var p: UIPanGestureRecognizer?
         
         if let r = panGestureRecognizer {
@@ -338,6 +356,7 @@ public class SASlideDrawerViewController: UIViewController {
         if content.superview != view { view.addSubview(content) }
         if drawer.superview != view { view.addSubview(drawer) }
         
+        view.removeConstraints(view.constraints())
         content.pinToParentView()
         
         var constraints = [NSLayoutConstraint]()
