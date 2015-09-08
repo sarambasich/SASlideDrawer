@@ -263,7 +263,7 @@ public class SASlideDrawerViewController: UIViewController {
             let denom = max(fabs(drawerSize - drawerPos), drawerSize)
             
             if fabs(v.x) > 300.0 || fabs(v.y) > 300.0 {
-                let dur = Double(deltaUnits) / Double(v.x)
+                let dur = Double(drawerSize - deltaUnits) / Double(v.x)
                 let flag: Bool
                 if deltaUnits > 0 {
                     openDrawer(customDuration: dur)
