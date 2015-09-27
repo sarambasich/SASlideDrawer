@@ -14,7 +14,7 @@ import SASlideDrawer
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    var drawerContainer: SASlideDrawerViewController!
+    var drawerController: SASlideDrawerViewController!
     
     class var currentAppDelegate: AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
@@ -24,15 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let content = ViewController(nibName: "MainView", bundle: nil)
-        content.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        content.view.translatesAutoresizingMaskIntoConstraints = false
         let drawer = DrawerViewController(nibName: "DrawerView", bundle: nil)
-        drawer.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        drawer.view.translatesAutoresizingMaskIntoConstraints = false
         
 //        let container = SASlideDrawerViewController(contentViewController: content, drawerViewController: drawer)
         let container = SASlideDrawerViewController(contentViewController: content, drawerViewController: drawer, slideDirection: SASlideDrawerDirection.Left)
-        container.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        container.view.translatesAutoresizingMaskIntoConstraints = false
         
-        drawerContainer = container
+        drawerController = container
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = container
