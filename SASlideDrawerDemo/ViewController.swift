@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let c = AppDelegate.currentAppDelegate.drawerContainer
+        let c = AppDelegate.currentAppDelegate.drawerController
         c.drawerDidPan = { pct in
             self.label.text = "\(pct)"
             self.view.backgroundColor = UIColor(hue: pct, saturation: pct, brightness: pct, alpha: 1.0)
@@ -22,11 +22,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didSelectButton(sender: AnyObject!) {
-        AppDelegate.currentAppDelegate.drawerContainer.toggleDrawerState()
+        AppDelegate.currentAppDelegate.drawerController.toggleDrawerState()
     }
     
     @IBAction func didSelectShowStateButton(sender: AnyObject!) {
-        let c = AppDelegate.currentAppDelegate.drawerContainer
-        println(c.drawerState.rawValue)
+        let c = AppDelegate.currentAppDelegate.drawerController
+        print(c.drawerState.rawValue)
     }
 }
