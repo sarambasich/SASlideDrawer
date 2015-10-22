@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "06BAEABD8F5EA79181DA8079A70B8CADA83E3869",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "09236C18B792473BBCD7DDA87E0FD805D950DF14" : 0,
+    "06BAEABD8F5EA79181DA8079A70B8CADA83E3869" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F9959D39-404C-4C4B-9FC4-55DFBFA3CD4F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "09236C18B792473BBCD7DDA87E0FD805D950DF14" : "..",
+    "06BAEABD8F5EA79181DA8079A70B8CADA83E3869" : "SASlideDrawer\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SASlideDrawer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SASlideDrawer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ArtisOracle\/SASlideDrawer",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "06BAEABD8F5EA79181DA8079A70B8CADA83E3869"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github-Locqus:LocqusStefan\/Service-Pro-iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "09236C18B792473BBCD7DDA87E0FD805D950DF14"
+    }
+  ]
+}

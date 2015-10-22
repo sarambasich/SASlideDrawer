@@ -125,7 +125,7 @@ public class SASlideDrawerViewController: UIViewController {
     /// The container view that displays the content view
     private lazy var contentContainerView: UIView = {
         let v = UIView(frame: self.view.frame)
-        v.setTranslatesAutoresizingMaskIntoConstraints(false)
+        v.translatesAutoresizingMaskIntoConstraints = false
         self.view.insertSubview(v, atIndex: 0)
         v.pinToParentView()
         return v
@@ -133,7 +133,7 @@ public class SASlideDrawerViewController: UIViewController {
     /// The container view that displays
     private lazy var drawerContainerView: UIView = {
         let v = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.drawerSize, height: self.drawerSize))
-        v.setTranslatesAutoresizingMaskIntoConstraints(false)
+        v.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(v)
         return v
     }()
@@ -176,9 +176,9 @@ public class SASlideDrawerViewController: UIViewController {
     /**
         Creates a new slide drawer container view controller with the given attributes.
     
-        :param: contentViewController The view controller containing the main content.
-        :param: drawerViewController The view controller containing the drawer's content.
-        :param: slideDirection The direction the menu should slide. Defaults to `.Left`.
+        - parameter contentViewController: The view controller containing the main content.
+        - parameter drawerViewController: The view controller containing the drawer's content.
+        - parameter slideDirection: The direction the menu should slide. Defaults to `.Left`.
     */
     public init(contentViewController: UIViewController, drawerViewController: UIViewController, slideDirection: SASlideDrawerDirection = .Left) {
         self.contentViewController = contentViewController
@@ -194,7 +194,7 @@ public class SASlideDrawerViewController: UIViewController {
         swapDrawerViewController(drawerViewController)
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         contentViewController = UIViewController()
         drawerViewController = UIViewController()
         slideDirection = .Left
@@ -237,8 +237,8 @@ public class SASlideDrawerViewController: UIViewController {
             drawerPanDidBegin?()
         case .Ended:
             let swipeEndPoint = gestureRecognizer.locationInView(view)
-            let swipeEndDate = NSDate()
-            let deltaTime = _swipeStartDate.timeIntervalSinceDate(swipeEndDate)
+//            let swipeEndDate = NSDate()
+//            let deltaTime = _swipeStartDate.timeIntervalSinceDate(swipeEndDate)
             let drawerEdge = slideConstraint.constant
             let v = gestureRecognizer.velocityInView(view)
             let deltaUnits: CGFloat
@@ -250,13 +250,13 @@ public class SASlideDrawerViewController: UIViewController {
                 deltaUnits = swipeEndPoint.y - _swipeStartPoint.y
             case .Bottom:
                 drawerPos = view.bounds.size.height - fabs(drawerEdge)
-                deltaUnits = swipeEndPoint.y - _swipeStartPoint.y
+                deltaUnits = _swipeStartPoint.y - swipeEndPoint.y
             case .Left:
                 drawerPos = fabs(drawerEdge)
                 deltaUnits = swipeEndPoint.x - _swipeStartPoint.x
             case .Right:
                 drawerPos = view.bounds.size.width - fabs(drawerEdge)
-                deltaUnits = swipeEndPoint.x - _swipeStartPoint.x
+                deltaUnits = _swipeStartPoint.x - swipeEndPoint.x
             }
             
             let numer = min(fabs(drawerSize - drawerPos), drawerSize)
@@ -352,10 +352,10 @@ public class SASlideDrawerViewController: UIViewController {
     /**
         Opens the drawer (moves the drawer view onto the screen).
     
-        :param: customDuration An optional custom duration of the animation.
+        - parameter customDuration: An optional custom duration of the animation.
     */
     public func openDrawer(customDuration d: NSTimeInterval = 0.0) {
-        var dur = d == 0.0 ? slideDuration : d
+        let dur = d == 0.0 ? slideDuration : d
         drawerWillOpen?(dur)
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillOpen, object: self))
         UIView.animateWithDuration(dur, animations: {
@@ -370,10 +370,10 @@ public class SASlideDrawerViewController: UIViewController {
     /**
         Close the drawer (moves the drawer view off of the screen).
         
-        :param: customDuration An optional custom duration of the animation.
+        - parameter customDuration: An optional custom duration of the animation.
     */
     public func closeDrawer(customDuration d: NSTimeInterval = 0.0) {
-        var dur = d == 0.0 ? slideDuration : d
+        let dur = d == 0.0 ? slideDuration : d
         drawerWillClose?(dur)
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillClose, object: self))
         UIView.animateWithDuration(dur, animations: {
@@ -401,8 +401,9 @@ public class SASlideDrawerViewController: UIViewController {
         contentViewController.willMoveToParentViewController(nil)
         addChildViewController(vc)
         vc.view.frame = contentContainerView.frame
-        contentContainerView.subviews.map { $0.removeFromSuperview() }
+        contentContainerView.subviews.each { $0.removeFromSuperview() }
         contentContainerView.addSubview(vc.view)
+        vc.view.pinToParentView()
         contentViewController.removeFromParentViewController()
         vc.didMoveToParentViewController(self)
     }
@@ -416,8 +417,9 @@ public class SASlideDrawerViewController: UIViewController {
         drawerViewController.willMoveToParentViewController(nil)
         addChildViewController(vc)
         vc.view.frame = drawerContainerView.frame
-        drawerContainerView.subviews.map { $0.removeFromSuperview() }
+        drawerContainerView.subviews.each { $0.removeFromSuperview() }
         drawerContainerView.addSubview(vc.view)
+        vc.view.pinToParentView()
         drawerViewController.removeFromParentViewController()
         vc.didMoveToParentViewController(self)
     }
@@ -468,4 +470,16 @@ public class SASlideDrawerViewController: UIViewController {
     }
     
     // ***
+}
+
+
+
+
+// MARK: - Array exntesion
+private extension Array {
+    private func each(c: (Element) -> Void) {
+        for item in self {
+            c(item)
+        }
+    }
 }
