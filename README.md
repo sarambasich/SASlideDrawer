@@ -8,4 +8,5 @@ The **drawer view controller** contains the area of the screen that can slide
  out and back in. It is meant for things like an auxiliary panel or a navigation
  menu.
 
-Demo pics coming soon.
+### Demo
+![Demo gif here](demo.gif)
