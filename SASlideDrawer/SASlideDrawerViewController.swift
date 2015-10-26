@@ -401,7 +401,7 @@ public class SASlideDrawerViewController: UIViewController {
         contentViewController.willMoveToParentViewController(nil)
         addChildViewController(vc)
         vc.view.frame = contentContainerView.frame
-        contentContainerView.subviews.each { $0.removeFromSuperview() }
+        for v in contentContainerView.subviews { v.removeFromSuperview() }
         contentContainerView.addSubview(vc.view)
         vc.view.pinToParentView()
         contentViewController.removeFromParentViewController()
@@ -417,7 +417,7 @@ public class SASlideDrawerViewController: UIViewController {
         drawerViewController.willMoveToParentViewController(nil)
         addChildViewController(vc)
         vc.view.frame = drawerContainerView.frame
-        drawerContainerView.subviews.each { $0.removeFromSuperview() }
+        for v in drawerContainerView.subviews { v.removeFromSuperview() }
         drawerContainerView.addSubview(vc.view)
         vc.view.pinToParentView()
         drawerViewController.removeFromParentViewController()
@@ -470,16 +470,4 @@ public class SASlideDrawerViewController: UIViewController {
     }
     
     // ***
-}
-
-
-
-
-// MARK: - Array exntesion
-private extension Array {
-    private func each(c: (Element) -> Void) {
-        for item in self {
-            c(item)
-        }
-    }
 }
