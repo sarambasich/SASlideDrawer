@@ -225,9 +225,15 @@ public class SASlideDrawerViewController: UIViewController {
     }
     
     public override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        let open = drawerState == .Open
         coordinator.animateAlongsideTransition(
             { context in
                 self.drawerSizeConstraint.constant = self.drawerSize
+                if open {
+                    self.openDrawer()
+                } else {
+                    self.closeDrawer()
+                }
             },
             completion: nil
         )
