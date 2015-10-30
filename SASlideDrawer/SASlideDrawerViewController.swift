@@ -142,6 +142,19 @@ public class SASlideDrawerViewController: UIViewController {
     private var drawerConstraints = [NSLayoutConstraint]()
     /// Container constraints added by this code
     private var containerConstraints = [NSLayoutConstraint]()
+    /// Drawer size constraint
+    private var drawerSizeConstraint: NSLayoutConstraint {
+        switch slideDirection {
+        case .Left:
+            fallthrough
+        case .Right:
+            return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .Width }.first!
+        case .Top:
+            fallthrough
+        case .Bottom:
+            return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .Height }.first!
+        }
+    }
     
     /// Handle invoked when drawer will open
     public var drawerWillOpen: ((NSTimeInterval) -> Void)?
@@ -209,6 +222,15 @@ public class SASlideDrawerViewController: UIViewController {
         
         configureContainerConstraints()
         configureDrawerConstraints()
+    }
+    
+    public override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition(
+            { context in
+                self.drawerSizeConstraint.constant = self.drawerSize
+            },
+            completion: nil
+        )
     }
     
     // MARK: - Event handlers
@@ -332,6 +354,7 @@ public class SASlideDrawerViewController: UIViewController {
     }
     
     /**
+     
         Configures the swipe gesture recognizer.
     */
     private func configureGestureRecognizers() {
