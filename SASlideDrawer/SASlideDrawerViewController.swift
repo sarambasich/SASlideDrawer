@@ -230,9 +230,9 @@ public class SASlideDrawerViewController: UIViewController {
             { context in
                 self.drawerSizeConstraint.constant = self.drawerSize
                 if open {
-                    self.openDrawer()
+                    self.openDrawer(notifyObservers: false)
                 } else {
-                    self.closeDrawer()
+                    self.closeDrawer(notifyObservers: false)
                 }
             },
             completion: nil
@@ -381,18 +381,23 @@ public class SASlideDrawerViewController: UIViewController {
     /**
         Opens the drawer (moves the drawer view onto the screen).
     
-        - parameter customDuration: An optional custom duration of the animation.
+         - parameter customDuration: An optional custom duration of the animation.
+         - parameter notify: Whether to notify the observers of the drawer close action.
     */
-    public func openDrawer(customDuration d: NSTimeInterval = 0.0) {
+    public func openDrawer(customDuration d: NSTimeInterval = 0.0, notifyObservers notify: Bool = true) {
         let dur = d == 0.0 ? slideDuration : d
-        drawerWillOpen?(dur)
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillOpen, object: self))
+        if notify {
+            drawerWillOpen?(dur)
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillOpen, object: self))
+        }
         UIView.animateWithDuration(dur, animations: {
             self.slideConstraint.constant = self.slideEndConstant
             self.drawerContainerView.layoutIfNeeded()
         }) { _ in
-            self.drawerDidOpen?()
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidOpen, object: self))
+            if notify {
+                self.drawerDidOpen?()
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidOpen, object: self))
+            }
         }
     }
 
@@ -400,17 +405,22 @@ public class SASlideDrawerViewController: UIViewController {
         Close the drawer (moves the drawer view off of the screen).
         
         - parameter customDuration: An optional custom duration of the animation.
+        - parameter notify: Whether to notify the observers of the drawer close action.
     */
-    public func closeDrawer(customDuration d: NSTimeInterval = 0.0) {
+    public func closeDrawer(customDuration d: NSTimeInterval = 0.0, notifyObservers notify: Bool = true) {
         let dur = d == 0.0 ? slideDuration : d
-        drawerWillClose?(dur)
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillClose, object: self))
+        if notify {
+            drawerWillClose?(dur)
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillClose, object: self))
+        }
         UIView.animateWithDuration(dur, animations: {
             self.slideConstraint.constant = self.slideStartConstant
             self.drawerContainerView.layoutIfNeeded()
         }) { _ in
-            self.drawerDidClose?()
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidClose, object: self))
+            if notify {
+                self.drawerDidClose?()
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidClose, object: self))
+            }
         }
     }
     
