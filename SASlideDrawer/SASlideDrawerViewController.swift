@@ -438,12 +438,12 @@ public class SASlideDrawerViewController: UIViewController {
     */
     private func swapContentViewController(vc: UIViewController) {
         contentViewController.willMoveToParentViewController(nil)
+        contentViewController.removeFromParentViewController()
         addChildViewController(vc)
         vc.view.frame = contentContainerView.frame
         for v in contentContainerView.subviews { v.removeFromSuperview() }
         contentContainerView.addSubview(vc.view)
         vc.view.pinToParentView()
-        contentViewController.removeFromParentViewController()
         vc.didMoveToParentViewController(self)
     }
     
@@ -454,12 +454,12 @@ public class SASlideDrawerViewController: UIViewController {
     */
     private func swapDrawerViewController(vc: UIViewController) {
         drawerViewController.willMoveToParentViewController(nil)
+        drawerViewController.removeFromParentViewController()
         addChildViewController(vc)
         vc.view.frame = drawerContainerView.frame
         for v in drawerContainerView.subviews { v.removeFromSuperview() }
         drawerContainerView.addSubview(vc.view)
         vc.view.pinToParentView()
-        drawerViewController.removeFromParentViewController()
         vc.didMoveToParentViewController(self)
     }
     
