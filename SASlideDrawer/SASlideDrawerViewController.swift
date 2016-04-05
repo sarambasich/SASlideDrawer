@@ -371,7 +371,9 @@ public class SASlideDrawerViewController: UIViewController {
         }
         
         if canPanToDrawer {
-            p = UIPanGestureRecognizer(target: self, action: "didPan:")
+            p = UIPanGestureRecognizer(target: self, action:
+                #selector(SASlideDrawerViewController.didPan(_:))
+            )
             view.addGestureRecognizer(p!)
         }
         
