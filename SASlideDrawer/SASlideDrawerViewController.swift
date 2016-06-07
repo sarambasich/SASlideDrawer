@@ -8,21 +8,6 @@
 
 import UIKit
 
-/**
-    Names of events posted to `NSNotificationCenter` in response to menu
-    status changes.
-*/
-public struct Events {
-    /// Event posted when the drawer will open
-    public static let DrawerWillOpen = "DrawerWillOpen"
-    /// Event posted when the drawer did open
-    public static let DrawerDidOpen = "DrawerDidOpen"
-    /// Event posted when the drawer will close
-    public static let DrawerWillClose = "DrawerWillClose"
-    /// Event posted when the drawer did close
-    public static let DrawerDidClose = "DrawerDidClose"
-}
-
 
 /**
     Describes the direction from which the drawer appears.
@@ -511,4 +496,21 @@ public class SASlideDrawerViewController: UIViewController {
     }
     
     // ***
+}
+
+extension SASlideDrawerViewController {
+    /**
+        Names of events posted to `NSNotificationCenter` in response to menu
+        status changes.
+     */
+    public struct Events {
+        /// Event posted when the drawer will open
+        public static let DrawerWillOpen = "DrawerWillOpen"
+        /// Event posted when the drawer did open
+        public static let DrawerDidOpen = "DrawerDidOpen"
+        /// Event posted when the drawer will close
+        public static let DrawerWillClose = "DrawerWillClose"
+        /// Event posted when the drawer did close
+        public static let DrawerDidClose = "DrawerDidClose"
+    }
 }
