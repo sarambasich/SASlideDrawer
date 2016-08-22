@@ -13,31 +13,31 @@ import SASlideDrawer
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+
     var drawerController: SASlideDrawerViewController!
-    
+
     class var currentAppDelegate: AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         let content = ViewController(nibName: "MainView", bundle: nil)
         content.view.translatesAutoresizingMaskIntoConstraints = false
         let drawer = DrawerViewController(nibName: "DrawerView", bundle: nil)
         drawer.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
 //        let container = SASlideDrawerViewController(contentViewController: content, drawerViewController: drawer)
         let container = SASlideDrawerViewController(contentViewController: content, drawerViewController: drawer, slideDirection: SASlideDrawerDirection.Left)
         container.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         drawerController = container
-        
+
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = container
         self.window?.makeKeyAndVisible()
-        
+
         return true
     }
 

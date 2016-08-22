@@ -47,7 +47,7 @@ public class SASlideDrawerViewController: UIViewController {
     public static let DefaultDrawerSize: CGFloat = 220.0
     /// The default slide duration of the drawer
     public static let DefaultSlideDuration: NSTimeInterval = 0.35
-    
+
     /// The content view controller - the view controller that is the main focus
     public var contentViewController: UIViewController {
         willSet(vc) {
@@ -64,7 +64,7 @@ public class SASlideDrawerViewController: UIViewController {
     }
     /// The duration it takes for the drawer to open / close when triggered
     public var slideDuration = DefaultSlideDuration
-    
+
     /// The direction the drawer slides from
     public private(set) var slideDirection: SASlideDrawerDirection
     /// Whether the user can swipe to reveal the drawer
@@ -77,7 +77,7 @@ public class SASlideDrawerViewController: UIViewController {
     public private(set) var panGestureRecognizer: UIPanGestureRecognizer?
     /// The constraint associated with the sliding action. The 'action' constraint if you will.
     private var slideConstraint: NSLayoutConstraint!
-    /// If provided, specifies where the gesture recognizer should determine open/close state as a multiplier (e.g. 0.5 
+    /// If provided, specifies where the gesture recognizer should determine open/close state as a multiplier (e.g. 0.5
     /// is halfway. Defaults to 0.5.
     private var showHideThresholdRatio: CGFloat = 0.5
     /// Where the drawer starts. Defaults to 0.0.
@@ -85,13 +85,13 @@ public class SASlideDrawerViewController: UIViewController {
     /// Where the drawer ends
     private var slideEndConstant: CGFloat {
         let end: CGFloat
-        
+
         if slideDirection == .Right || slideDirection == .Bottom {
             end = slideStartConstant - drawerSize
         } else {
             end = slideStartConstant + drawerSize
         }
-        
+
         return end
     }
     /// The current state of the drawer view
@@ -106,7 +106,7 @@ public class SASlideDrawerViewController: UIViewController {
     private var drawer: UIView {
         return drawerViewController.view
     }
-    
+
     /// The container view that displays the content view
     private lazy var contentContainerView: UIView = {
         let v = UIView(frame: self.view.frame)
@@ -122,7 +122,7 @@ public class SASlideDrawerViewController: UIViewController {
         self.view.addSubview(v)
         return v
     }()
-    
+
     /// Drawer constraints added by this code
     private var drawerConstraints = [NSLayoutConstraint]()
     /// Container constraints added by this code
@@ -140,7 +140,7 @@ public class SASlideDrawerViewController: UIViewController {
             return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .Height }.first!
         }
     }
-    
+
     /// Handle invoked when drawer will open
     public var drawerWillOpen: ((NSTimeInterval) -> Void)?
     /// Handle invoked when the drawer will close
@@ -149,7 +149,7 @@ public class SASlideDrawerViewController: UIViewController {
     public var drawerDidOpen: (() -> Void)?
     /// Handle invoked when the drawer did close
     public var drawerDidClose: (() -> Void)?
-    
+
     /// Handle invoked when drawer slides (argument represents percent shown,
     /// 0% being 0 and 100% being `drawerSize`)
     public var drawerDidPan: ((CGFloat) -> Void)?
@@ -159,9 +159,9 @@ public class SASlideDrawerViewController: UIViewController {
     /// the speed at which the drawer will close, second, second represents
     /// whether the drawer will open or not)
     public var drawerPanDidFinish: ((NSTimeInterval, Bool) -> Void)?
-    
+
     // ***
-    
+
     /// The threshold that the drawer should not appear beyond
     private var swipeThreshold: CGFloat {
         if slideDirection == .Right || slideDirection == .Bottom {
@@ -170,10 +170,10 @@ public class SASlideDrawerViewController: UIViewController {
             return drawerSize
         }
     }
-    
+
     /**
         Creates a new slide drawer container view controller with the given attributes.
-    
+
         - parameter contentViewController: The view controller containing the main content.
         - parameter drawerViewController: The view controller containing the drawer's content.
         - parameter slideDirection: The direction the menu should slide. Defaults to `.Left`.
@@ -182,33 +182,33 @@ public class SASlideDrawerViewController: UIViewController {
         self.contentViewController = contentViewController
         self.drawerViewController = drawerViewController
         self.slideDirection = slideDirection
-        
+
         canPanToDrawer = true
-        
+
         super.init(nibName: nil, bundle: nil)
-        
+
         configureGestureRecognizers()
         swapContentViewController(contentViewController)
         swapDrawerViewController(drawerViewController)
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         contentViewController = UIViewController()
         drawerViewController = UIViewController()
         slideDirection = .Left
-        
+
         super.init(coder: aDecoder)
     }
-    
+
     // ***
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureContainerConstraints()
         configureDrawerConstraints()
     }
-    
+
     public override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         let open = drawerState == .Open
         coordinator.animateAlongsideTransition(
@@ -223,16 +223,16 @@ public class SASlideDrawerViewController: UIViewController {
             completion: nil
         )
     }
-    
+
     // MARK: - Event handlers
     private var _swipeStartPoint: CGPoint!
     private var _swipeStartDate: NSDate!
     private var _fingerOffset: CGFloat = 0.0
-    
+
     func didPan(gestureRecognizer: UIPanGestureRecognizer) {
         let viewPoint = gestureRecognizer.locationInView(view)
         let drawerPoint = gestureRecognizer.locationInView(drawer)
-        
+
         switch gestureRecognizer.state {
         case .Began:
             _swipeStartDate = NSDate()
@@ -255,7 +255,7 @@ public class SASlideDrawerViewController: UIViewController {
             let drawerEdge = slideConstraint.constant
             let v = gestureRecognizer.velocityInView(view)
             let deltaUnits: CGFloat
-            
+
             let drawerPos: CGFloat
             switch slideDirection {
             case .Top:
@@ -271,10 +271,10 @@ public class SASlideDrawerViewController: UIViewController {
                 drawerPos = view.bounds.size.width - fabs(drawerEdge)
                 deltaUnits = _swipeStartPoint.x - swipeEndPoint.x
             }
-            
+
             let numer = min(fabs(drawerSize - drawerPos), drawerSize)
             let denom = max(fabs(drawerSize - drawerPos), drawerSize)
-            
+
             if fabs(v.x) > 300.0 || fabs(v.y) > 300.0 {
                 let dur = Double(drawerSize - deltaUnits) / Double(v.x)
                 let flag: Bool
@@ -321,17 +321,17 @@ public class SASlideDrawerViewController: UIViewController {
                     constraint = slideStartConstant - (view.frame.size.width - viewPoint.x) - _fingerOffset
                 }
             }
-            
+
             slideConstraint.constant = constraint
-            
+
             drawerDidPan?(fabs(constraint / drawerSize))
         }
     }
-    
+
     /**
-        Toggles the current drawer state. If the drawer is closed, it will open. If     it 
+        Toggles the current drawer state. If the drawer is closed, it will open. If     it
         is opened, it will close.
-    
+
         :return: The new drawer state.
     */
     public func toggleDrawerState() -> SASlideDrawerState {
@@ -340,34 +340,34 @@ public class SASlideDrawerViewController: UIViewController {
         } else {
             openDrawer()
         }
-        
+
         return drawerState
     }
-    
+
     /**
-     
+
         Configures the swipe gesture recognizer.
     */
     private func configureGestureRecognizers() {
         var p: UIPanGestureRecognizer?
-        
+
         if let r = panGestureRecognizer {
             view.removeGestureRecognizer(r)
         }
-        
+
         if canPanToDrawer {
             p = UIPanGestureRecognizer(target: self, action:
                 #selector(SASlideDrawerViewController.didPan(_:))
             )
             view.addGestureRecognizer(p!)
         }
-        
+
         panGestureRecognizer = p
     }
-    
+
     /**
         Opens the drawer (moves the drawer view onto the screen).
-    
+
          - parameter customDuration: An optional custom duration of the animation.
          - parameter notify: Whether to notify the observers of the drawer close action.
     */
@@ -390,7 +390,7 @@ public class SASlideDrawerViewController: UIViewController {
 
     /**
         Close the drawer (moves the drawer view off of the screen).
-        
+
         - parameter customDuration: An optional custom duration of the animation.
         - parameter notify: Whether to notify the observers of the drawer close action.
     */
@@ -410,17 +410,17 @@ public class SASlideDrawerViewController: UIViewController {
             }
         }
     }
-    
+
     /**
         Configures the auto-layout constraints for the container.
     */
     private func configureContainerConstraints() {
         contentContainerView.pinToParentView()
     }
-    
+
     /**
         Swap the content view controller for the new one
-    
+
         :param: vc The view controller to swap the content to.
     */
     private func swapContentViewController(vc: UIViewController) {
@@ -433,10 +433,10 @@ public class SASlideDrawerViewController: UIViewController {
         vc.view.pinToParentView()
         vc.didMoveToParentViewController(self)
     }
-    
+
     /**
         Swap the drawer view controller for the new one
-        
+
         :param: vc The view controller to swap the drawer to.
     */
     private func swapDrawerViewController(vc: UIViewController) {
@@ -449,13 +449,13 @@ public class SASlideDrawerViewController: UIViewController {
         vc.view.pinToParentView()
         vc.didMoveToParentViewController(self)
     }
-    
+
     /**
         Configures the auto-layout constraints for the drawer
     */
     private func configureDrawerConstraints() {
         view.removeConstraints(drawerConstraints)
-        
+
         var constraints = [NSLayoutConstraint]()
         switch slideDirection {
         case .Top:
@@ -489,12 +489,12 @@ public class SASlideDrawerViewController: UIViewController {
             constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
             constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: drawerSize))
         }
-        
+
         view.addConstraints(constraints)
         view.setNeedsDisplay()
         drawerConstraints = constraints
     }
-    
+
     // ***
 }
 
