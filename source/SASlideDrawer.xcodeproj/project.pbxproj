@@ -12,7 +12,6 @@
 		F81DE9661AE580A7008575B5 /* SASlideDrawerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9651AE580A7008575B5 /* SASlideDrawerTests.swift */; };
 		F81DE9701AE580BA008575B5 /* SASlideDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE96F1AE580BA008575B5 /* SASlideDrawerViewController.swift */; };
 		F81DE9721AE580D3008575B5 /* SASlideDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9711AE580D3008575B5 /* SASlideDrawer.swift */; };
-		F81DE9921AE584E6008575B5 /* SASlideDrawerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */; };
 		F81DE9A21AE58518008575B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE99A1AE58518008575B5 /* AppDelegate.swift */; };
 		F81DE9A51AE58518008575B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81DE99F1AE58518008575B5 /* Images.xcassets */; };
 		F81DE9A71AE58518008575B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DE9A11AE58518008575B5 /* ViewController.swift */; };
@@ -30,13 +29,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = F81DE9521AE580A7008575B5;
 			remoteInfo = SASlideDrawer;
-		};
-		F81DE98C1AE584E6008575B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F81DE94A1AE580A7008575B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F81DE9761AE584E6008575B5;
-			remoteInfo = SASlideDrawerDemo;
 		};
 		F81DE9B11AE587A8008575B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -70,9 +62,6 @@
 		F81DE96F1AE580BA008575B5 /* SASlideDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SASlideDrawerViewController.swift; sourceTree = "<group>"; };
 		F81DE9711AE580D3008575B5 /* SASlideDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SASlideDrawer.swift; sourceTree = "<group>"; };
 		F81DE9771AE584E6008575B5 /* SASlideDrawerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SASlideDrawerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F81DE98B1AE584E6008575B5 /* SASlideDrawerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SASlideDrawerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F81DE9901AE584E6008575B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SASlideDrawerDemoTests.swift; sourceTree = "<group>"; };
 		F81DE99A1AE58518008575B5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F81DE99C1AE58518008575B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F81DE99F1AE58518008575B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -107,13 +96,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F81DE9881AE584E6008575B5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -123,7 +105,6 @@
 				F81DE9551AE580A7008575B5 /* SASlideDrawer */,
 				F81DE9621AE580A7008575B5 /* SASlideDrawerTests */,
 				F81DE9991AE58518008575B5 /* SASlideDrawerDemo */,
-				F81DE98E1AE584E6008575B5 /* SASlideDrawerDemoTests */,
 				F81DE9541AE580A7008575B5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,7 +115,6 @@
 				F81DE9531AE580A7008575B5 /* SASlideDrawer.framework */,
 				F81DE95E1AE580A7008575B5 /* SASlideDrawerTests.xctest */,
 				F81DE9771AE584E6008575B5 /* SASlideDrawerDemo.app */,
-				F81DE98B1AE584E6008575B5 /* SASlideDrawerDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,23 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				F81DE9641AE580A7008575B5 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F81DE98E1AE584E6008575B5 /* SASlideDrawerDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				F81DE9911AE584E6008575B5 /* SASlideDrawerDemoTests.swift */,
-				F81DE98F1AE584E6008575B5 /* Supporting Files */,
-			);
-			path = SASlideDrawerDemoTests;
-			sourceTree = "<group>";
-		};
-		F81DE98F1AE584E6008575B5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F81DE9901AE584E6008575B5 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,24 +240,6 @@
 			productReference = F81DE9771AE584E6008575B5 /* SASlideDrawerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F81DE98A1AE584E6008575B5 /* SASlideDrawerDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F81DE9961AE584E6008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerDemoTests" */;
-			buildPhases = (
-				F81DE9871AE584E6008575B5 /* Sources */,
-				F81DE9881AE584E6008575B5 /* Frameworks */,
-				F81DE9891AE584E6008575B5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F81DE98D1AE584E6008575B5 /* PBXTargetDependency */,
-			);
-			name = SASlideDrawerDemoTests;
-			productName = SASlideDrawerDemoTests;
-			productReference = F81DE98B1AE584E6008575B5 /* SASlideDrawerDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -302,7 +247,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Stefan Arambasich";
 				TargetAttributes = {
 					F81DE9521AE580A7008575B5 = {
@@ -313,10 +258,6 @@
 					};
 					F81DE9761AE584E6008575B5 = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					F81DE98A1AE584E6008575B5 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = F81DE9761AE584E6008575B5;
 					};
 				};
 			};
@@ -336,7 +277,6 @@
 				F81DE9521AE580A7008575B5 /* SASlideDrawer */,
 				F81DE95D1AE580A7008575B5 /* SASlideDrawerTests */,
 				F81DE9761AE584E6008575B5 /* SASlideDrawerDemo */,
-				F81DE98A1AE584E6008575B5 /* SASlideDrawerDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -364,13 +304,6 @@
 				F88DF0431AE5F3B7008E58ED /* DeleteMeView.xib in Resources */,
 				F81DE9BB1AE58C9D008575B5 /* MainView.xib in Resources */,
 				F81DE9A51AE58518008575B5 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F81DE9891AE584E6008575B5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,14 +337,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F81DE9871AE584E6008575B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F81DE9921AE584E6008575B5 /* SASlideDrawerDemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -419,11 +344,6 @@
 			isa = PBXTargetDependency;
 			target = F81DE9521AE580A7008575B5 /* SASlideDrawer */;
 			targetProxy = F81DE9601AE580A7008575B5 /* PBXContainerItemProxy */;
-		};
-		F81DE98D1AE584E6008575B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F81DE9761AE584E6008575B5 /* SASlideDrawerDemo */;
-			targetProxy = F81DE98C1AE584E6008575B5 /* PBXContainerItemProxy */;
 		};
 		F81DE9B21AE587A8008575B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -452,13 +372,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -487,6 +417,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -501,13 +432,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -527,6 +468,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -538,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -556,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -623,36 +568,6 @@
 			};
 			name = Release;
 		};
-		F81DE9971AE584E6008575B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SASlideDrawerDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lib.sarambasich.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SASlideDrawerDemo.app/SASlideDrawerDemo";
-			};
-			name = Debug;
-		};
-		F81DE9981AE584E6008575B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SASlideDrawerDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lib.sarambasich.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SASlideDrawerDemo.app/SASlideDrawerDemo";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -688,15 +603,6 @@
 			buildConfigurations = (
 				F81DE9941AE584E6008575B5 /* Debug */,
 				F81DE9951AE584E6008575B5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F81DE9961AE584E6008575B5 /* Build configuration list for PBXNativeTarget "SASlideDrawerDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F81DE9971AE584E6008575B5 /* Debug */,
-				F81DE9981AE584E6008575B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

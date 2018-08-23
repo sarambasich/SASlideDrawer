@@ -13,57 +13,62 @@ import UIKit
     Describes the direction from which the drawer appears.
 */
 public enum SASlideDrawerDirection: Int {
+
     /// The drawer appears from the top and slides down
-    case Top
+    case top
     /// The drawer appears from the bottom and slides up
-    case Bottom
+    case bottom
     /// The drawer appears from the left and slides right
-    case Left
+    case left
     /// The drawer appears from the right and slides left
-    case Right
+    case right
+
 }
 
-/**
-    The current state of the drawer.
-*/
-public enum SASlideDrawerState: Int {
+
+/// The current state of the drawer.
+///
+/// - open: The drawer is opened.
+/// - closed: The drawer is closed.
+public enum SASlideDrawerState {
+
     /// The drawer is opened
-    case Open
+    case open
     /// The drawer is closed
-    case Closed
+    case closed
+
 }
 
 
-/**
-    Describes a view controller that contains a sliding drawer from one direction.
-
-    Example uses:
-        - Side / navigation menu
-        - Detail views
-        - Pull down / out views
-*/
+/// Describes a view controller that contains a sliding drawer from one direction.
+/// 
+/// Example uses:
+///     - Side / navigation menu
+///     - Detail views
+///     - Pull down / out views
 public class SASlideDrawerViewController: UIViewController {
+
     /// The default size of the drawer
-    public static let DefaultDrawerSize: CGFloat = 220.0
+    public static let defaultDrawerSize: CGFloat = 220.0
     /// The default slide duration of the drawer
-    public static let DefaultSlideDuration: NSTimeInterval = 0.35
+    public static let defaultSlideDuration: TimeInterval = 0.35
 
     /// The content view controller - the view controller that is the main focus
     public var contentViewController: UIViewController {
         willSet(vc) {
-            swapContentViewController(vc)
+            swapContentViewController(vc: vc)
         }
     }
     /// The drawer view controller - the view that slides out and provides extra info
     public var drawerViewController: UIViewController
     /// The preferred width or height for the drawer
-    public var drawerSize: CGFloat = DefaultDrawerSize {
+    public var drawerSize: CGFloat = defaultDrawerSize {
         didSet {
             configureDrawerConstraints()
         }
     }
     /// The duration it takes for the drawer to open / close when triggered
-    public var slideDuration = DefaultSlideDuration
+    public var slideDuration = defaultSlideDuration
 
     /// The direction the drawer slides from
     public private(set) var slideDirection: SASlideDrawerDirection
@@ -86,7 +91,7 @@ public class SASlideDrawerViewController: UIViewController {
     private var slideEndConstant: CGFloat {
         let end: CGFloat
 
-        if slideDirection == .Right || slideDirection == .Bottom {
+        if slideDirection == .right || slideDirection == .bottom {
             end = slideStartConstant - drawerSize
         } else {
             end = slideStartConstant + drawerSize
@@ -96,7 +101,7 @@ public class SASlideDrawerViewController: UIViewController {
     }
     /// The current state of the drawer view
     public var drawerState: SASlideDrawerState {
-        return slideConstraint.constant == slideStartConstant ? .Closed : .Open
+        return slideConstraint.constant == slideStartConstant ? .closed : .open
     }
     /// The content view controller's view
     private var content: UIView {
@@ -111,7 +116,7 @@ public class SASlideDrawerViewController: UIViewController {
     private lazy var contentContainerView: UIView = {
         let v = UIView(frame: self.view.frame)
         v.translatesAutoresizingMaskIntoConstraints = false
-        self.view.insertSubview(v, atIndex: 0)
+        self.view.insertSubview(v, at: 0)
         v.pinToParentView()
         return v
     }()
@@ -130,21 +135,21 @@ public class SASlideDrawerViewController: UIViewController {
     /// Drawer size constraint
     private var drawerSizeConstraint: NSLayoutConstraint {
         switch slideDirection {
-        case .Left:
+        case .left:
             fallthrough
-        case .Right:
-            return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .Width }.first!
-        case .Top:
+        case .right:
+            return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .width }.first!
+        case .top:
             fallthrough
-        case .Bottom:
-            return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .Height }.first!
+        case .bottom:
+            return drawerConstraints.filter { $0.firstItem === self.drawerContainerView && $0.firstAttribute == .height }.first!
         }
     }
 
     /// Handle invoked when drawer will open
-    public var drawerWillOpen: ((NSTimeInterval) -> Void)?
+    public var drawerWillOpen: ((TimeInterval) -> Void)?
     /// Handle invoked when the drawer will close
-    public var drawerWillClose: ((NSTimeInterval) -> Void)?
+    public var drawerWillClose: ((TimeInterval) -> Void)?
     /// Handle invoked when the drawer did open
     public var drawerDidOpen: (() -> Void)?
     /// Handle invoked when the drawer did close
@@ -158,13 +163,13 @@ public class SASlideDrawerViewController: UIViewController {
     /// Handle invoked when drawer pan did finish (first argument represnts
     /// the speed at which the drawer will close, second, second represents
     /// whether the drawer will open or not)
-    public var drawerPanDidFinish: ((NSTimeInterval, Bool) -> Void)?
+    public var drawerPanDidFinish: ((TimeInterval, Bool) -> Void)?
 
     // ***
 
     /// The threshold that the drawer should not appear beyond
     private var swipeThreshold: CGFloat {
-        if slideDirection == .Right || slideDirection == .Bottom {
+        if slideDirection == .right || slideDirection == .bottom {
             return -drawerSize
         } else {
             return drawerSize
@@ -176,9 +181,9 @@ public class SASlideDrawerViewController: UIViewController {
 
         - parameter contentViewController: The view controller containing the main content.
         - parameter drawerViewController: The view controller containing the drawer's content.
-        - parameter slideDirection: The direction the menu should slide. Defaults to `.Left`.
+        - parameter slideDirection: The direction the menu should slide. Defaults to `.left`.
     */
-    public init(contentViewController: UIViewController, drawerViewController: UIViewController, slideDirection: SASlideDrawerDirection = .Left) {
+    public init(contentViewController: UIViewController, drawerViewController: UIViewController, slideDirection: SASlideDrawerDirection = .left) {
         self.contentViewController = contentViewController
         self.drawerViewController = drawerViewController
         self.slideDirection = slideDirection
@@ -188,14 +193,14 @@ public class SASlideDrawerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         configureGestureRecognizers()
-        swapContentViewController(contentViewController)
-        swapDrawerViewController(drawerViewController)
+        swapContentViewController(vc: contentViewController)
+        swapDrawerViewController(vc: drawerViewController)
     }
 
     public required init?(coder aDecoder: NSCoder) {
         contentViewController = UIViewController()
         drawerViewController = UIViewController()
-        slideDirection = .Left
+        slideDirection = .left
 
         super.init(coder: aDecoder)
     }
@@ -209,10 +214,10 @@ public class SASlideDrawerViewController: UIViewController {
         configureDrawerConstraints()
     }
 
-    public override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        let open = drawerState == .Open
-        coordinator.animateAlongsideTransition(
-            { context in
+    public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        let open = drawerState == .open
+        coordinator.animate(
+            alongsideTransition: { context in
                 self.drawerSizeConstraint.constant = self.drawerSize
                 if open {
                     self.openDrawer(notifyObservers: false)
@@ -226,48 +231,48 @@ public class SASlideDrawerViewController: UIViewController {
 
     // MARK: - Event handlers
     private var _swipeStartPoint: CGPoint!
-    private var _swipeStartDate: NSDate!
+    private var _swipeStartDate: Date!
     private var _fingerOffset: CGFloat = 0.0
 
-    func didPan(gestureRecognizer: UIPanGestureRecognizer) {
-        let viewPoint = gestureRecognizer.locationInView(view)
-        let drawerPoint = gestureRecognizer.locationInView(drawer)
+    @objc func didPan(gestureRecognizer: UIPanGestureRecognizer) {
+        let viewPoint = gestureRecognizer.location(in: view)
+        let drawerPoint = gestureRecognizer.location(in: drawer)
 
         switch gestureRecognizer.state {
-        case .Began:
-            _swipeStartDate = NSDate()
+        case .began:
+            _swipeStartDate = Date()
             _swipeStartPoint = viewPoint
             switch slideDirection {
-            case .Top:
+            case .top:
                 _fingerOffset = drawerSize - drawerPoint.y
-            case .Bottom:
+            case .bottom:
                 _fingerOffset = drawerPoint.y
-            case .Left:
+            case .left:
                 _fingerOffset = drawerSize - drawerPoint.x
-            case .Right:
+            case .right:
                 _fingerOffset = drawerPoint.x
             }
             drawerPanDidBegin?()
-        case .Ended:
-            let swipeEndPoint = gestureRecognizer.locationInView(view)
-//            let swipeEndDate = NSDate()
+        case .ended:
+            let swipeEndPoint = gestureRecognizer.location(in: view)
+//            let swipeEndDate = Date()
 //            let deltaTime = _swipeStartDate.timeIntervalSinceDate(swipeEndDate)
             let drawerEdge = slideConstraint.constant
-            let v = gestureRecognizer.velocityInView(view)
+            let v = gestureRecognizer.velocity(in: view)
             let deltaUnits: CGFloat
 
             let drawerPos: CGFloat
             switch slideDirection {
-            case .Top:
+            case .top:
                 drawerPos = fabs(drawerEdge)
                 deltaUnits = swipeEndPoint.y - _swipeStartPoint.y
-            case .Bottom:
+            case .bottom:
                 drawerPos = view.bounds.size.height - fabs(drawerEdge)
                 deltaUnits = _swipeStartPoint.y - swipeEndPoint.y
-            case .Left:
+            case .left:
                 drawerPos = fabs(drawerEdge)
                 deltaUnits = swipeEndPoint.x - _swipeStartPoint.x
-            case .Right:
+            case .right:
                 drawerPos = view.bounds.size.width - fabs(drawerEdge)
                 deltaUnits = _swipeStartPoint.x - swipeEndPoint.x
             }
@@ -296,25 +301,25 @@ public class SASlideDrawerViewController: UIViewController {
         default:
             var constraint: CGFloat
             switch slideDirection {
-            case .Top:
+            case .top:
                 if viewPoint.y + _fingerOffset > swipeThreshold {
                     constraint = swipeThreshold
                 } else {
                     constraint = viewPoint.y + _fingerOffset
                 }
-            case .Bottom:
+            case .bottom:
                 if viewPoint.y - _fingerOffset < view.frame.size.height + swipeThreshold {
                     constraint = slideEndConstant
                 } else {
                     constraint = slideStartConstant - (view.frame.size.height - viewPoint.y) - _fingerOffset
                 }
-            case .Left:
+            case .left:
                 if viewPoint.x + _fingerOffset > swipeThreshold {
                     constraint = 0.0
                 } else {
                     constraint = (viewPoint.x - drawerSize) + _fingerOffset
                 }
-            case .Right:
+            case .right:
                 if viewPoint.x - _fingerOffset < view.frame.size.width + swipeThreshold {
                     constraint = slideEndConstant
                 } else {
@@ -335,7 +340,7 @@ public class SASlideDrawerViewController: UIViewController {
         :return: The new drawer state.
     */
     public func toggleDrawerState() -> SASlideDrawerState {
-        if drawerState == .Open {
+        if drawerState == .open {
             closeDrawer()
         } else {
             openDrawer()
@@ -356,9 +361,7 @@ public class SASlideDrawerViewController: UIViewController {
         }
 
         if canPanToDrawer {
-            p = UIPanGestureRecognizer(target: self, action:
-                #selector(SASlideDrawerViewController.didPan(_:))
-            )
+            p = UIPanGestureRecognizer(target: self, action: #selector(didPan(gestureRecognizer:)))
             view.addGestureRecognizer(p!)
         }
 
@@ -371,19 +374,19 @@ public class SASlideDrawerViewController: UIViewController {
          - parameter customDuration: An optional custom duration of the animation.
          - parameter notify: Whether to notify the observers of the drawer close action.
     */
-    public func openDrawer(customDuration d: NSTimeInterval = 0.0, notifyObservers notify: Bool = true) {
+    public func openDrawer(customDuration d: TimeInterval = 0.0, notifyObservers notify: Bool = true) {
         let dur = d == 0.0 ? slideDuration : d
         if notify {
             drawerWillOpen?(dur)
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillOpen, object: self))
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: Events.drawerWillOpen), object: self))
         }
-        UIView.animateWithDuration(dur, animations: {
+        UIView.animate(withDuration: dur, animations: {
             self.slideConstraint.constant = self.slideEndConstant
             self.drawerContainerView.layoutIfNeeded()
         }) { _ in
             if notify {
                 self.drawerDidOpen?()
-                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidOpen, object: self))
+                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: Events.drawerDidOpen), object: self))
             }
         }
     }
@@ -394,19 +397,19 @@ public class SASlideDrawerViewController: UIViewController {
         - parameter customDuration: An optional custom duration of the animation.
         - parameter notify: Whether to notify the observers of the drawer close action.
     */
-    public func closeDrawer(customDuration d: NSTimeInterval = 0.0, notifyObservers notify: Bool = true) {
+    public func closeDrawer(customDuration d: TimeInterval = 0.0, notifyObservers notify: Bool = true) {
         let dur = d == 0.0 ? slideDuration : d
         if notify {
             drawerWillClose?(dur)
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerWillClose, object: self))
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: Events.drawerWillClose), object: self))
         }
-        UIView.animateWithDuration(dur, animations: {
+        UIView.animate(withDuration: dur, animations: {
             self.slideConstraint.constant = self.slideStartConstant
             self.drawerContainerView.layoutIfNeeded()
         }) { _ in
             if notify {
                 self.drawerDidClose?()
-                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Events.DrawerDidClose, object: self))
+                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: Events.drawerDidClose), object: self))
             }
         }
     }
@@ -424,14 +427,14 @@ public class SASlideDrawerViewController: UIViewController {
         :param: vc The view controller to swap the content to.
     */
     private func swapContentViewController(vc: UIViewController) {
-        contentViewController.willMoveToParentViewController(nil)
+        contentViewController.willMove(toParentViewController: nil)
         contentViewController.removeFromParentViewController()
         addChildViewController(vc)
         vc.view.frame = contentContainerView.frame
         for v in contentContainerView.subviews { v.removeFromSuperview() }
         contentContainerView.addSubview(vc.view)
         vc.view.pinToParentView()
-        vc.didMoveToParentViewController(self)
+        vc.didMove(toParentViewController: self)
     }
 
     /**
@@ -440,14 +443,14 @@ public class SASlideDrawerViewController: UIViewController {
         :param: vc The view controller to swap the drawer to.
     */
     private func swapDrawerViewController(vc: UIViewController) {
-        drawerViewController.willMoveToParentViewController(nil)
+        drawerViewController.willMove(toParentViewController: nil)
         drawerViewController.removeFromParentViewController()
         addChildViewController(vc)
         vc.view.frame = drawerContainerView.frame
         for v in drawerContainerView.subviews { v.removeFromSuperview() }
         drawerContainerView.addSubview(vc.view)
         vc.view.pinToParentView()
-        vc.didMoveToParentViewController(self)
+        vc.didMove(toParentViewController: self)
     }
 
     /**
@@ -458,36 +461,36 @@ public class SASlideDrawerViewController: UIViewController {
 
         var constraints = [NSLayoutConstraint]()
         switch slideDirection {
-        case .Top:
-            let c = NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: slideStartConstant)
+        case .top:
+            let c = NSLayoutConstraint(item: drawerContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: slideStartConstant)
             constraints.append(c)
             slideConstraint = c
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: drawerSize))
-        case .Bottom:
-            let c = NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: slideStartConstant)
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: drawerSize))
+        case .bottom:
+            let c = NSLayoutConstraint(item: drawerContainerView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: slideStartConstant)
             slideConstraint = c
             constraints.append(c)
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: drawerSize))
-        case .Left:
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: drawerSize))
+        case .left:
             slideStartConstant = -drawerSize
-            let c = NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: slideStartConstant)
+            let c = NSLayoutConstraint(item: drawerContainerView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: slideStartConstant)
             slideConstraint = c
             constraints.append(c)
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: drawerSize))
-        case .Right:
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: drawerSize))
+        case .right:
             slideStartConstant = drawerSize
-            let c = NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: slideStartConstant)
+            let c = NSLayoutConstraint(item: drawerContainerView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: slideStartConstant)
             slideConstraint = c
             constraints.append(c)
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: drawerSize))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: drawerContainerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: drawerSize))
         }
 
         view.addConstraints(constraints)
@@ -500,17 +503,17 @@ public class SASlideDrawerViewController: UIViewController {
 
 extension SASlideDrawerViewController {
     /**
-        Names of events posted to `NSNotificationCenter` in response to menu
+        Names of events posted to `NotificationCenter` in response to menu
         status changes.
      */
     public struct Events {
         /// Event posted when the drawer will open
-        public static let DrawerWillOpen = "DrawerWillOpen"
+        public static let drawerWillOpen = "DrawerWillOpen"
         /// Event posted when the drawer did open
-        public static let DrawerDidOpen = "DrawerDidOpen"
+        public static let drawerDidOpen = "DrawerDidOpen"
         /// Event posted when the drawer will close
-        public static let DrawerWillClose = "DrawerWillClose"
+        public static let drawerWillClose = "DrawerWillClose"
         /// Event posted when the drawer did close
-        public static let DrawerDidClose = "DrawerDidClose"
+        public static let drawerDidClose = "DrawerDidClose"
     }
 }
